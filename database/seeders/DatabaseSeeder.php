@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             CourseSeeder::class,
             GradeItemSeeder::class,
             StudentSeeder::class,
+            StudentGradeSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

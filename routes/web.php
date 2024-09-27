@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('courses.index');
 });
 
 Route::resource('students', StudentController::class);
+Route::get('courses', [CourseController::class, 'index'])->name('courses.index');
+Route::get('courses/{course}', [CourseController::class, 'show'])->name('courses.show');
+Route::post('courses/{course}/enrollment/add', [CourseController::class, 'addStudent'])->name('course.addStudent');
+Route::delete('courses/{course}/enrollment/remove/{student}', [CourseController::class, 'removeStudent'])->name('course.removeStudent');
 
 Auth::routes();
 
