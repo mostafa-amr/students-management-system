@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+@if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 <div class="container">
     <h1>Students</h1>
 
@@ -45,7 +50,7 @@
                 <td>{{ $student->level->name }}</td>
                 <td>
                     <a href="{{ route('students.edit', $student->id) }}" class="btn btn-warning">Edit</a>
-                    <form action="{{ route('students.destroy', $student->id) }}" method="POST" style="display:inline;">
+                    <form action="{{ route('students.destroy', $student->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Delete</button>
