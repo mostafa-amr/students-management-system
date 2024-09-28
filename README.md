@@ -7,6 +7,70 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Routes
+
+### Course Enrollment
+- **Remove Student from Course**  
+  `DELETE /courses/{course}/enrollment/remove/{student}`  
+  Removes a student from a course.
+
+- **Add Student to Course**  
+  `POST /courses/{course}/enrollment/add`  
+  Adds a student to a course.
+
+- **Show Students in Course**  
+  `GET /courses/{course}`  
+  Displays all students enrolled in a specific course.
+
+- **List All Courses**  
+  `GET /courses`  
+  Displays all available courses.
+
+### Student Management
+- **List All Students**  
+  `GET /students`  
+  Displays a list of all students.
+
+- **Store New Student**  
+  `POST /students`  
+  Adds a new student to the system.
+
+- **View Create Student Form**  
+  `GET /students/create`  
+  Shows the form for creating a new student.
+
+- **Edit Student**  
+  `GET /students/{student}/edit`  
+  Displays the form for editing an existing student.
+
+- **Update Student**  
+  `PUT|PATCH /students/{student}`  
+  Updates an existing student's information.
+
+- **Delete Student**  
+  `DELETE /students/{student}`  
+  Deletes a student from the system.
+
+---
+
+## Installation Steps
+
+1. Clone the repository:
+   ```bash
+   git clone <repository_url>
+2. Go to the project directory:
+   ```bash
+   cd <project_directory>
+  
+3. composer install
+4. cp .env.example .env
+5. php artisan key:generate
+6. php artisan migrate
+7. npm install
+8. npm run dev
+9. php artisan db:seed
+10. php artisan serve
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
